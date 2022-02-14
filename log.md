@@ -1,5 +1,23 @@
 # 100 Days Of Code - Log
 
+## Day 1: February 14, 2022
+
+**Today's Progress**: Started the Vue Todos App project
+- Got most requirements gathered and started the Vue 3 project
+    - Using Vue and TailwindCSS primarily
+- Sketched general design to use
+- Cleaned up the boilerplate/demo code and got the base structure down
+- Noted most components that will be needed (still trying to identify some.)
+
+**Thoughts:** A productive day and trying to take a measured approach to the apps design and evelopment. Still working on requirements and end design.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:**
+![Todo App Sketch](_progress-images/20220214-todo-app-sketch.jpg "Todo app sketch")
+
+***
+
 ## Day 0: February 13, 2022
 
 **Today's Progress**: Created repository and planning my learning and projects out for the next 100 days.

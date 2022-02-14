@@ -11,6 +11,14 @@
 
 This repository was created new from [Kallaway's](https://github.com/Kallaway/100-days-of-code) original repository. I had forked it before and was not able to again. I would recommend forking his as this one will not have any updates to the documentation after today (02/13/2022).
 
+## What I am Planning to Accomplish
+
+My primary goal is to sharpen my frontend development skills and develop better git practices. More specifically my goals are:
+
+- Create a "todo app" with Vue, Svelte, Solid, and Alpine (the same app with different frameworks)
+- Create a unique app with each of these four frameworks
+- Mange git repositorys better with proper branching and planning
+
 ## If you've decided to join:
 
 0.  Check out [the Official Site](http://100daysofcode.com/) for the #100DaysOfCode movement. Connect with others on the platform of your choice from this list: www.100DaysOfCode.com/connect
