@@ -1,20 +1,28 @@
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore({
+export const useTodoListStore = defineStore({
     id: 'todos',
     state: () => ({
-            todoList: [
+            todoLists: [
                 {
                     id: 1,
+                    title: 'Work'
+                }
+            ],
+            todos: [
+                {
+                    id: 1,
+                    listId: 1,
                     parentId: null,
                     title: 'Test',
-                    description: 'Testing, testing ... 1, 2, 3 ... testing.',
-                    date: 'DATE/TIME',
+                    description: 'Testing, testing ... 1, 2, 3 ... testing..',
+                    createdAt: 'DATE/TIME',
+                    dueAt: 'DATE/TIME',
                     complete: false,
                     reminder: {},
                 }
             ],
-            remindersList: [
+            reminders: [
                 {
                     todoId: 1,
                     set: false,
@@ -31,23 +39,48 @@ export const useCounterStore = defineStore({
             }
     }),
     getters: {
-        getTodoList: (state) => state.todoList,
-        getReminders: (state) => state.remindersList,
+        // Todos
+        getAllTodos: (state) => state.todos,
+        getIncompleteTodos: (state) => {
+            return state.todos.filter((todo) => !todo.complete)
+        },
+        getCompleteTodos: (state) => {
+            return state.todos.filter((todo) => todo.complete)
+        },
+        getTodosCount: (state) => {
+            return state.todos.length
+        },
+        // Reminders
+        getReminders: (state) => state.reminders,
+        // Settings
         getSettings: (state) => state.settings
     },
     actions: {
+        // Todos
         addTodo(todoItem) {
-            this.todoList = [todoItem, ...this.todoList]
+            this.todos = [todoItem, ...this.todos]
         },
         removeTodo(todoId){
-            this.todoList = this.todoList.filter((item) => item.id !== todoId)
+            this.todos = this.todos.filter((item) => item.id !== todoId)
         },
+        toggleTodo(todoId){
+            const todoIndex = this.findTodoIndexById(todoId)
+
+            if(todoIndex !== -1){
+                this.todos[todoIndex].complete = !this.todos[todoIndex].complete
+            }
+        },
+        findTodoIndexById(id) {
+            return this.todos.findIndex((todo) => todo.id === id);
+        },
+        // Reminders
         addReminder(reminderItem){
-            this.remindersList = [reminderItem, ...this.remindersList]
+            this.reminders = [reminderItem, ...this.reminders]
         },
         removeReminder(todoId){
-            this.remindersList = this.remindersList.filter((item) => item.todoId !== todoId)
+            this.reminders = this.reminders.filter((item) => item.todoId !== todoId)
         },
+        // Settings
         toggleTheme(){ 
             this.settings.darkMode = !this.settings.darkMode
         }

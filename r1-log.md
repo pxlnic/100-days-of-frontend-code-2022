@@ -4,6 +4,9 @@ The log of my #100DaysOfCode challenge. Started on [February 13, 2022].
 
 ## Log
 
+### R1D2
+Worked on Vue "todos app". Getting more familair with Vue and Pinia documentation. Added "transition-group" for todo items and setup basic getters and actions.
+
 ### R1D1 
 Initialized Vue "todo app" and started to gather requirements and plan the application out. Utilized the [Vue.js docs](https://vuejs.org/guide/quick-start.html#with-build-tools) to re-familiarize myself with the library.
 

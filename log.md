@@ -1,5 +1,22 @@
 # 100 Days Of Code - Log
 
+## Day 2: February 15, 2022
+
+**Today's Progress:** Composition API and transitions.
+- I am learning the ins and outs of the composition API as I have not had a lot of experience with it
+    - I have only really used the Options API previously
+- I am learning to manage state better and working with Pinia
+- Working with transitions, and more speicifically adding and removing items from the list
+- Improving use of the documentation to increase comprehension of frameworks
+
+**Thoughts:** My primary goal today was to work on using the composition API more, using Pinia for state management, and relearning transitions with Vue. I am trying to better utilize the documentation of web technology to accomplish my goals. I know what I am trying the make and the docs should have all the details I need to make it happen.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** ![Todos App List](_progress-images/20220215-todo-app-list.jpg "Todos app list")
+
+***
+
 ## Day 1: February 14, 2022
 
 **Today's Progress**: Started the Vue Todos App project
