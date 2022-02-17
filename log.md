@@ -1,5 +1,25 @@
 # 100 Days Of Code - Log
 
+## Day 3: February 16, 2022
+
+**Today's Progress:** UI Tweaks, animations, Pinia state, and more Composition API diving.
+- Still toying with the Composition API and learning how best to use it
+    - I tried working with "emits" but was having issues, will look into later
+    - Moved most things into Pinia State as it was easier to maange that way
+- Worked more with animations, but am struggling with making the sidenav slide open
+    - Will be spending more time on this later and really mastering Vue's transitions
+- Laid out more of the UI and looking for ways to breakup components to make them smaller and more concise
+- Added details pane
+- Added icons for routes, adding new todo, closing todo details pane
+- Added filters for todos list
+- Made general app and todo list page responsive
+
+**Thoughts:** I am still in the "figuring" out stage. My plan is to poke around vue the rest of the week and rewrite the app next week to be more efficient, have cleaner code, and allow me to dissect the project. I have been referencing the docs more and am getting more comfortable with them.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** ![Todos App List](_progress-images/20220216-todo-app-list.jpg "Todos app list")
+
 ## Day 2: February 15, 2022
 
 **Today's Progress:** Composition API and transitions.

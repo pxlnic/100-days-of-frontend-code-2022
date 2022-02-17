@@ -41,9 +41,9 @@
 <script setup>
 import { ref } from "vue";
 import BaseCard from "../components/Base/baseCard.vue";
-import { useTodoListStore } from "../stores/todos.js";
+import { useTodoStore } from "../stores/todos.js";
 
-const todoStore = useTodoListStore();
+const todoStore = useTodoStore();
 
 const props = defineProps(["todo"]);
 

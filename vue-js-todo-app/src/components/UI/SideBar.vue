@@ -1,0 +1,120 @@
+<template>
+	<transition name="slide">
+		<header class="app-nav overflow-hidden" :class="{ open: open }">
+			<nav class="flex flex-col overflow-hidden">
+				<RouterLink to="/todo-list" class="w-full">
+					<span class="flex items-center w-full mb-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 512 512"
+							class="w-6 fill-white"
+						>
+							<path
+								d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"
+							/>
+						</svg>
+						<p class="hide-text">Todos</p>
+					</span>
+				</RouterLink>
+				<RouterLink to="/todo-stats">
+					<span class="flex items-center w-full mb-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 512 512"
+							class="w-6 fill-white"
+						>
+							<path
+								d="M32 32C49.67 32 64 46.33 64 64V400C64 408.8 71.16 416 80 416H480C497.7 416 512 430.3 512 448C512 465.7 497.7 480 480 480H80C35.82 480 0 444.2 0 400V64C0 46.33 14.33 32 32 32zM160 224C177.7 224 192 238.3 192 256V320C192 337.7 177.7 352 160 352C142.3 352 128 337.7 128 320V256C128 238.3 142.3 224 160 224zM288 320C288 337.7 273.7 352 256 352C238.3 352 224 337.7 224 320V160C224 142.3 238.3 128 256 128C273.7 128 288 142.3 288 160V320zM352 192C369.7 192 384 206.3 384 224V320C384 337.7 369.7 352 352 352C334.3 352 320 337.7 320 320V224C320 206.3 334.3 192 352 192zM480 320C480 337.7 465.7 352 448 352C430.3 352 416 337.7 416 320V96C416 78.33 430.3 64 448 64C465.7 64 480 78.33 480 96V320z"
+							/>
+						</svg>
+						<p class="hide-text">Stats</p>
+					</span>
+				</RouterLink>
+				<RouterLink to="/settings">
+					<span class="flex items-center w-full">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 512 512"
+							class="w-6 fill-white"
+						>
+							<!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+							<path
+								d="M495.9 166.6C499.2 175.2 496.4 184.9 489.6 191.2L446.3 230.6C447.4 238.9 448 247.4 448 256C448 264.6 447.4 273.1 446.3 281.4L489.6 320.8C496.4 327.1 499.2 336.8 495.9 345.4C491.5 357.3 486.2 368.8 480.2 379.7L475.5 387.8C468.9 398.8 461.5 409.2 453.4 419.1C447.4 426.2 437.7 428.7 428.9 425.9L373.2 408.1C359.8 418.4 344.1 427 329.2 433.6L316.7 490.7C314.7 499.7 307.7 506.1 298.5 508.5C284.7 510.8 270.5 512 255.1 512C241.5 512 227.3 510.8 213.5 508.5C204.3 506.1 197.3 499.7 195.3 490.7L182.8 433.6C167 427 152.2 418.4 138.8 408.1L83.14 425.9C74.3 428.7 64.55 426.2 58.63 419.1C50.52 409.2 43.12 398.8 36.52 387.8L31.84 379.7C25.77 368.8 20.49 357.3 16.06 345.4C12.82 336.8 15.55 327.1 22.41 320.8L65.67 281.4C64.57 273.1 64 264.6 64 256C64 247.4 64.57 238.9 65.67 230.6L22.41 191.2C15.55 184.9 12.82 175.3 16.06 166.6C20.49 154.7 25.78 143.2 31.84 132.3L36.51 124.2C43.12 113.2 50.52 102.8 58.63 92.95C64.55 85.8 74.3 83.32 83.14 86.14L138.8 103.9C152.2 93.56 167 84.96 182.8 78.43L195.3 21.33C197.3 12.25 204.3 5.04 213.5 3.51C227.3 1.201 241.5 0 256 0C270.5 0 284.7 1.201 298.5 3.51C307.7 5.04 314.7 12.25 316.7 21.33L329.2 78.43C344.1 84.96 359.8 93.56 373.2 103.9L428.9 86.14C437.7 83.32 447.4 85.8 453.4 92.95C461.5 102.8 468.9 113.2 475.5 124.2L480.2 132.3C486.2 143.2 491.5 154.7 495.9 166.6V166.6zM256 336C300.2 336 336 300.2 336 255.1C336 211.8 300.2 175.1 256 175.1C211.8 175.1 176 211.8 176 255.1C176 300.2 211.8 336 256 336z"
+							/>
+						</svg>
+						<p class="hide-text">Settings</p>
+					</span>
+				</RouterLink>
+			</nav>
+			<button class="nav-toggle" @click.prevent="toggleNav">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 448 512"
+					class="w-6 fill-white"
+					:class="{ rotate: open }"
+				>
+					<!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+					<path
+						d="M246.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L178.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C47.63 444.9 55.81 448 64 448s16.38-3.125 22.62-9.375l160-160C259.1 266.1 259.1 245.9 246.6 233.4zM438.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L370.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C239.6 444.9 247.8 448 256 448s16.38-3.125 22.62-9.375l160-160C451.1 266.1 451.1 245.9 438.6 233.4z"
+					/>
+				</svg>
+			</button>
+		</header>
+	</transition>
+</template>
+
+<script setup>
+import { RouterLink } from "vue-router";
+import { ref, computed } from "vue";
+
+const open = ref(false);
+
+const navWidth = computed(() => {
+	if (open) {
+		return "md:w-[250px]";
+	} else {
+		return "md:w-min";
+	}
+});
+
+function toggleNav() {
+	console.log("TOGGLING NAV");
+	open.value = !open.value;
+}
+</script>
+
+<style scoped>
+.app-nav {
+	@apply w-full max-h-0 top-0 left-0 py-8 px-4 bg-purple-900 text-white text-2xl z-20 transition duration-300 md:w-24 md:max-h-screen md:h-screen;
+}
+.app-nav.open {
+	@apply max-h-screen md:w-[250px];
+}
+.app-nav nav {
+	@apply -z-50 w-0 transition duration-300 opacity-0 md:opacity-100 md:z-10 md:w-full;
+}
+.app-nav.open nav {
+	@apply opacity-100 w-full z-20;
+}
+.nav-toggle {
+	@apply p-4 absolute top-0 right-0 z-30 md:top-auto md:right-auto md:bottom-0 md:left-0;
+}
+.nav-toggle svg {
+	@apply rotate-90 transition duration-300 md:rotate-0;
+}
+.nav-toggle svg.rotate {
+	@apply -rotate-90 md:rotate-180;
+}
+svg {
+	@apply mx-3;
+}
+.hide-text {
+	@apply transition duration-300 md:max-w-0 md:opacity-0;
+}
+.app-nav.open .hide-text {
+	@apply md:max-w-full md:opacity-100;
+}
+.hide-text:hover {
+	@apply underline;
+}
+</style>

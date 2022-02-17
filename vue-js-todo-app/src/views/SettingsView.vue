@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <h1>Settings View</h1>
-    </div>
+	<div class="content-container">
+		<h1 class="heading">Settings View</h1>
+	</div>
 </template>
 
 <script setup>

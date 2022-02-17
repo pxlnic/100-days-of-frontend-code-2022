@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h1>Todo Stats View</h1>
+	<div class="content-container">
+		<h1 class="heading">Todo Stats View</h1>
 	</div>
 </template>
 

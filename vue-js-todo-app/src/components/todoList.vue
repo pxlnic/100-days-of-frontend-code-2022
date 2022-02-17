@@ -8,28 +8,27 @@
 
 <script setup>
 import TodoItem from "../components/todoItem.vue";
-import { useTodoListStore } from "../stores/todos.js";
+import { useTodoStore } from "../stores/todos.js";
 import { ref, computed, onUpdated } from "vue";
 
-const todoStore = useTodoListStore();
+const todoStore = useTodoStore();
 
-const props = defineProps(["listType"]);
-
-// console.log(props.listType);
+const todoFilter = ref(todoStore.getTodosFilter);
 
 const todoList = computed(() => {
-	if (props.listType == "all") {
+	if (todoStore.getTodosFilter == "all") {
 		return todoStore.getAllTodos;
-	} else if (props.listType == "complete") {
+	} else if (todoStore.getTodosFilter == "complete") {
 		return todoStore.getCompleteTodos;
 	} else {
 		return todoStore.getIncompleteTodos;
 	}
 });
 
-// console.log("TODO LIST SETUP");
-// console.log(todoList);
-onUpdated(() => console.log(todoList));
+onUpdated(() => {
+	console.log("UPDATING LIST");
+	todoList;
+});
 </script>
 
 <style scoped>
