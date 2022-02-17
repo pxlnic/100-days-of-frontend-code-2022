@@ -3,21 +3,16 @@ import { defineStore } from 'pinia'
 export const useTodoStore = defineStore({
     id: 'todos',
     state: () => ({
-            todos: [
-                {
-                    id: 1,
-                    listId: 1,
-                    parentId: null,
-                    title: 'Test',
-                    description: 'Testing, testing ... 1, 2, 3 ... testing..',
-                    createdAt: 'DATE/TIME',
-                    dueAt: 'DATE/TIME',
-                    complete: false,
-                    reminder: {},
-                }
-            ],
+            todos: [],
             todosFilter: 'open',
             todosDetailsOpen: false,
+            todosFormData: {
+                title: "",
+                description: "",
+                complete: false,
+                valid: false,
+                clicked: false,
+            }
     }),
     getters: {
         getAllTodos: (state) => state.todos.sort(function(a, b){return (a.complete === b.complete) ? 0 : a.complete ? 1 : -1 }),
@@ -41,6 +36,9 @@ export const useTodoStore = defineStore({
         },
         getTodosDetailsOpen:(state) => {
             return state.todosDetailsOpen
+        },
+        getTodosFormData:(state) => {
+            return state.todosFormData
         }
     },
     actions: {
@@ -72,6 +70,9 @@ export const useTodoStore = defineStore({
         },
         setTodosDetailsOpen(status){
             this.todosDetailsOpen = status;
+        },
+        setTodosFormData(data){
+            this.todosFormData = data
         }
     }
 })

@@ -1,44 +1,142 @@
-<template>
-	<div class="details-panel" :class="{ open: todoStore.getTodosDetailsOpen }">
+<template v-model='todoFormData'>
+	<div
+		class="details-panel relative"
+		:class="{ open: todoStore.getTodosDetailsOpen }"
+	>
 		<div class="w-full flex justify-between">
 			<h1 class="heading">Todo Details</h1>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 512 512"
-				class="
-					w-8
-					transition
-					duration-300
-					fill-purple-700
-					cursor-pointer
-					hover:fill-purple-500
-				"
+			<FaIcon
+				width="w-8"
+				fillColor="fill-purple-700"
+				hoverFillColor="hover:fill-purple-500"
+				type="circleX"
+				class="cursor-pointer"
 				@click="closeDetailsPanel"
-			>
-				<!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-				<path
-					d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
-				/>
-			</svg>
+			/>
 		</div>
+		<form
+			@submit.prevent="submitTodo($event.target.children[0].children)"
+			class="flex flex-col"
+		>
+			<div>
+				<FormText
+					inputLabel="Title"
+					inputPlaceholder="Enter a title for your todo ..."
+					invalidInputText="A title is required!"
+					v-model="todoStore.todosFormData.title"
+				/>
+				<FormTextArea
+					name="description"
+					inputLabel="Details"
+					inputPlaceholder="Enter the details for your todo ..."
+					invalidInputText="Details are required!"
+					v-model="todoStore.todosFormData.description"
+				/>
+			</div>
+
+			<div class="flex flex-col self-end">
+				<FormButton buttonText="Submit" />
+				<p
+					class="
+						opacity-0
+						max-h-0
+						peer-required:opacity-100 peer-required:max-h-screen
+						text-sm text-pink-700
+						transition
+						duration-300
+					"
+					:class="{
+						'opacity-100':
+							!todoStore.todosFormData.valid &&
+							todoStore.todosFormData.clicked,
+						'max-h-screen':
+							!todoStore.todosFormData.valid &&
+							todoStore.todosFormData.clicked,
+					}"
+				>
+					Not all fields are valid!
+				</p>
+			</div>
+		</form>
 	</div>
 </template>
 
 <script setup>
 import { useTodoStore } from "../stores/todos.js";
+import { ref, toRef } from "vue";
+import FaIcon from "../components/UI/faIcon.vue";
+import FormText from "../components/UI/formText.vue";
+import FormTextArea from "../components/UI/formTextArea.vue";
+import FormButton from "../components/UI/formButton.vue";
 
 const todoStore = useTodoStore();
 
+function resetForm() {
+	setTimeout(() => {
+		todoStore.setTodosFormData({
+			id: null,
+			title: "",
+			description: "",
+			valid: false,
+			clicked: false,
+		});
+	}, 500);
+}
+
 function closeDetailsPanel() {
 	todoStore.setTodosDetailsOpen(false);
+	resetForm();
+}
+
+function validateForm(formData) {
+	if (formData.title != "" && formData.description != "") {
+		formData.valid = true;
+	} else {
+		formData.valid = false;
+	}
+	return formData;
+}
+
+function submitTodo() {
+	let formData = todoStore.getTodosFormData;
+
+	formData.clicked = true;
+
+	formData = validateForm(formData);
+
+	if (!formData.valid) {
+		return;
+	}
+
+	const newTodo = {
+		id: formData.id || todoStore.getTodosCount + 1,
+		listId: 1,
+		parentId: null,
+		title: formData.title,
+		description: formData.description,
+		createdAt: "DATE/TIME",
+		dueAt: "DATE/TIME",
+		complete: formData.complete,
+		reminder: {},
+	};
+
+	if (formData.id != null) {
+		todoStore.updateTodo(formData.id, newTodo);
+	} else {
+		todoStore.addTodo(newTodo);
+	}
+
+	todoStore.setTodosDetailsOpen(false);
+
+	resetForm();
 }
 </script>
 
 <style scoped>
 .details-panel {
-	@apply fixed top-16 left-0 bottom-0 right-0 w-full max-h-0 p-4 -z-50 bg-white opacity-0 transition duration-300 md:relative md:p-0 md:inset-auto;
+	@apply fixed top-16 left-0 bottom-0 right-0 w-full max-h-0 p-4 flex flex-col -z-50 bg-white opacity-0 transition duration-300 md:relative md:p-0 md:inset-auto;
 }
 .details-panel.open {
-	@apply max-h-screen h-screen z-10 opacity-100 md:h-auto;
+	@apply max-h-screen h-full z-10 opacity-100;
 }
 </style>

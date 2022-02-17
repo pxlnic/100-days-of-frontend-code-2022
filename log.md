@@ -1,5 +1,20 @@
 # 100 Days Of Code - Log
 
+## Day 4: February 17, 2022
+
+**Today's Progress:** Reworked Icons. Details Form. Updated State Management. Added Add, Remove, and Edit functionality.
+- Created an "icon" component to minimize svg code filling up files
+- Added the "Todo Details" form which is tied to a Pinia state item with 2-way binding
+- Moved most items over to Pinia from internal component data
+- Added functionality to add, edit, and delete todos (no more dummy data)
+- Played around with Composition API more and figured out emits a bit more (used [Program With Erik's video](https://www.youtube.com/watch?v=9uSNKIXH_AI))
+
+**Thoughts:** I am feeling more confident in state management. It is still not perfect or even pretty, but works well. I am also feeling more confident with the Composition API and the "setup" tag after watching Erik's video. My plan tomorrow is to actually focus on transitions/animations more.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** ![Todos App List](_progress-images/20220217-vue-todo-app-list.png "Todos app list")
+
 ## Day 3: February 16, 2022
 
 **Today's Progress:** UI Tweaks, animations, Pinia state, and more Composition API diving.

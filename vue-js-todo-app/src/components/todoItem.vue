@@ -1,54 +1,89 @@
 <template>
 	<BaseCard
-		class="relative flex flex-row items-center"
-		@click="toggleTodo(todo.id)"
+		class="
+			relative
+			flex flex-row
+			items-center
+			justify-between
+			cursor-pointer
+			mb-2
+		"
+		bgColor="bg-gray-200"
+		bgHoverColor="hover:bg-gray-300"
 	>
-		<div
-			class="
-				p-2
-				pr-6
-				cursor-pointer
-				transition
-				duration-300
-				hover:opacity-50
-			"
-		>
-			<img
-				class="w-[20px]"
-				src="../assets/icons/o-solid.svg"
-				alt=""
-				v-show="!todo.complete"
-			/>
-			<img
-				class="w-[20px] checked"
-				src="../assets/icons/circle-check-solid.svg"
-				alt=""
-				v-show="todo.complete"
-			/>
+		<div class="flex flex-row items-center w-full">
+			<div class="p-2 pr-6 z-20" @click="toggleTodo(todo.id)">
+				<FaIcon
+					width="w-6"
+					fillColor="fill-slate-700"
+					hoverFillColor="hover:fill-slate-600"
+					type="circle"
+					class="cursor-pointer"
+					v-show="!todo.complete"
+				/>
+				<FaIcon
+					width="w-6"
+					fillColor="fill-lime-800"
+					hoverFillColor="hover:fill-lime-600"
+					type="circleCheck"
+					class="cursor-pointer"
+					v-show="todo.complete"
+				/>
+			</div>
+			<div
+				:class="{
+					'opacity-50': todo.complete,
+					'line-through': todo.complete,
+				}"
+				class="justify-self-stretch w-full"
+				@click="openTodo(todo)"
+			>
+				<p class="text-lg font-bold md:text-xl">{{ todo.title }}</p>
+				<p class="md:text-lg">{{ todo.description }}</p>
+			</div>
 		</div>
-		<div
-			:class="{
-				'opacity-70': todo.complete,
-				'line-through': todo.complete,
-			}"
-		>
-			<p class="text-lg font-bold md:text-xl">{{ todo.title }}</p>
-			<p class="md:text-lg">{{ todo.description }}</p>
-		</div>
+
+		<FaIcon
+			fillColor="fill-red-700"
+			hoverFillColor="hover:fill-red-500"
+			width="w-8"
+			type="circleX"
+			class="mr-4 cursor-pointer justify-self-end z-20"
+			@click="deleteTodo(todo.id)"
+		/>
 	</BaseCard>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import BaseCard from "../components/Base/baseCard.vue";
 import { useTodoStore } from "../stores/todos.js";
+import BaseCard from "../components/Base/baseCard.vue";
+import FaIcon from "../components/UI/faIcon.vue";
 
 const todoStore = useTodoStore();
 
 const props = defineProps(["todo"]);
 
+function openTodo(todo) {
+	console.log(todo);
+	todoStore.setTodosDetailsOpen(true);
+	todoStore.setTodosFormData({
+		id: todo.id,
+		title: todo.title,
+		description: todo.description,
+		complete: todo.complete,
+		valid: true,
+		clicked: false,
+	});
+}
+
 function toggleTodo(id) {
 	todoStore.toggleTodo(id);
+}
+
+// Add a prompt to delete todos
+function deleteTodo(id) {
+	todoStore.removeTodo(id);
 }
 </script>
 

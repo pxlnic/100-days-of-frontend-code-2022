@@ -1,9 +1,11 @@
 <template>
-	<transition-group name="todos" tag="ul">
-		<li v-for="todo in todoList" :key="todo.id">
-			<TodoItem :todo="todo"></TodoItem>
-		</li>
-	</transition-group>
+	<div>
+		<transition-group name="todos" tag="ul" class="pt-4">
+			<li v-for="todo in todoList" :key="todo.id">
+				<TodoItem :todo="todo"></TodoItem>
+			</li>
+		</transition-group>
+	</div>
 </template>
 
 <script setup>
@@ -26,7 +28,6 @@ const todoList = computed(() => {
 });
 
 onUpdated(() => {
-	console.log("UPDATING LIST");
 	todoList;
 });
 </script>
