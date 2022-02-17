@@ -18,7 +18,7 @@
 
 **Link to work:** In the 'vue-js-todo-app' folder
 
-**Image:** ![Todos App List](_progress-images/20220216-todo-app-list.jpg "Todos app list")
+**Image:** ![Todos App List](_progress-images/20220216-vue-todo-app-list.png "Todos app list")
 
 ## Day 2: February 15, 2022
 
@@ -33,7 +33,7 @@
 
 **Link to work:** In the 'vue-js-todo-app' folder
 
-**Image:** ![Todos App List](_progress-images/20220215-todo-app-list.jpg "Todos app list")
+**Image:** ![Todos App List](_progress-images/20220215-vue-todo-app-list.png "Todos app list")
 
 ***
 
@@ -51,7 +51,7 @@
 **Link to work:** In the 'vue-js-todo-app' folder
 
 **Image:**
-![Todo App Sketch](_progress-images/20220214-todo-app-sketch.jpg "Todo app sketch")
+![Todo App Sketch](_progress-images/20220214-vue-todo-app-sketch.jpg "Todo app sketch")
 
 ***
 
