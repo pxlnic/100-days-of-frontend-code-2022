@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<transition-group name="todos" tag="ul" class="pt-4">
-			<li v-for="todo in todoList" :key="todo.id">
+		<transition-group name="todos" tag="ul" class="pt-4 relative">
+			<li v-for="todo in todoList" :key="todo.id" class="w-full">
 				<TodoItem :todo="todo"></TodoItem>
 			</li>
 		</transition-group>
@@ -25,6 +25,8 @@ const todoList = computed(() => {
 	} else {
 		return todoStore.getIncompleteTodos;
 	}
+
+	console.log(todoStore.getAllTodos);
 });
 
 onUpdated(() => {
@@ -45,10 +47,10 @@ onUpdated(() => {
 .todos-enter-from,
 .todos-leave-to {
 	opacity: 0;
-	transform: translateX(30px);
+	transform: translateX(50px);
 }
 
-.todos-leave-activ {
+.todos-leave-active {
 	position: absolute;
 }
 </style>

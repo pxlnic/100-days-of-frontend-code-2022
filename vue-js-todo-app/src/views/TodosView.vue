@@ -3,12 +3,12 @@
 		class="
 			content-container
 			relative
-			h-screen
+			h-full
 			max-h-screen
 			grid grid-cols-1
-			grid-rows-[min-content_1fr]
+			grid-rows-[min-content_auto]
 			gap-2
-			md:grid-rows-[1fr_min-content] md:grid-cols-2
+			md:grid-rows-[1fr_min-content] md:grid-cols-2 md:h-screen
 		"
 	>
 		<!-- Todo Filters and Stats -->
@@ -25,8 +25,8 @@
 			<div class="w-full flex justify-between">
 				<h1 class="heading">Todos</h1>
 				<FaIcon
-					fillColor="fill-purple-700"
-					hoverFillColor="hover:fill-purple-500"
+					fillColor="fill-gray-500"
+					hoverFillColor="hover:fill-purple-700"
 					width="w-8"
 					type="circlePlus"
 					class="mr-4 cursor-pointer"
@@ -40,7 +40,7 @@
 
 		<!-- Todo Details Overlay / Panel -->
 		<div class="md:ml-4 md:overflow-y-auto md:overflow-x-hidden">
-			<TodoDetails class="todo-details"></TodoDetails>
+			<TodoDetails></TodoDetails>
 		</div>
 	</div>
 </template>
@@ -68,11 +68,6 @@ function addTodo() {
 </script>
 
 <style scoped>
-button {
-	@apply bg-gray-300 p-2 rounded;
-}
-
-/* Todo-List */
 .todo-list,
 .todo-details {
 	@apply bg-transparent transition duration-300;

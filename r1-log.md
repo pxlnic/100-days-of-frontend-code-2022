@@ -4,7 +4,7 @@ The log of my #100DaysOfCode challenge. Started on [February 13, 2022].
 
 ## Log
 
-### R1D3
+### R1D4
 Worked on Vue "todos app". Reworked icons, delved into Composition API with Setup tag more, devled into Pinia state management more, and added form for creating/editing todos.
 
 ### R1D3

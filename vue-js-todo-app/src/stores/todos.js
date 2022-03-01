@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useTodoStore = defineStore({
     id: 'todos',
     state: () => ({
-            todos: [],
+            todos: (JSON.parse(localStorage.getItem('todos')) || []),
             todosFilter: 'open',
             todosDetailsOpen: false,
             todosFormData: {
@@ -42,17 +42,29 @@ export const useTodoStore = defineStore({
         }
     },
     actions: {
+        initiateTodos(){
+
+        },
         addTodo(todoItem) {
             this.todos = [todoItem, ...this.todos]
+            console.log("ADDING TODO")
+            console.log(this.todos)
+            localStorage.setItem("todos", JSON.stringify(this.todos))
         },
         removeTodo(todoId){
             this.todos = this.todos.filter((item) => item.id !== todoId)
+            console.log("REMOVING TODO")
+            console.log(this.todos)
+            localStorage.setItem("todos", JSON.stringify(this.todos))
         },
         updateTodo(todoId, todo){
             const todoIndex = this.findTodoIndexById(todoId)
 
             if(todoIndex !== -1){
                 this.todos[todoIndex] = todo
+                console.log("UPDATING TODO")
+                console.log(this.todos)
+                localStorage.setItem("todos", JSON.stringify(this.todos))
             }
         },
         toggleTodo(todoId){
@@ -60,6 +72,9 @@ export const useTodoStore = defineStore({
 
             if(todoIndex !== -1){
                 this.todos[todoIndex].complete = !this.todos[todoIndex].complete
+                console.log("TOGGLING TODO")
+                console.log(this.todos)
+                localStorage.setItem("todos", JSON.stringify(this.todos))
             }
         },
         findTodoIndexById(id) {

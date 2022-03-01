@@ -1,5 +1,44 @@
 # 100 Days Of Code - Log
 
+## Day 7: February 28, 2022
+
+**Today's Progress:** Fixed transition. localStorage working. Started Stats.
+- Fixed "leave-active" styling (had a type)
+- Got localStorage working with JSON.stringify and JSON.parse (forgot about these)
+- Started on the stats page
+
+**Thoughts:** Today was some cleanup primarily and getting things working a bit more smoothly. Also wanted to work on the stats "dashboard".
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** N/A
+
+## Day 6: February 25, 2022
+
+**Today's Progress:** Started localStorage implementation.
+- Started re-familiarizing my self with localStorage
+- Ran into some hiccups with how the data is being stored
+- SIDE NOTE: Took a break for most of this week as I had an event I was involved in for a good chunk of it.
+
+**Thoughts:** Spent a short amount of time on it today. Still getting familiar with using localStorage again.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** N/A
+
+## Day 5: February 18, 2022
+
+**Today's Progress:** Updated UI elements. Fixed sidebar transition on open/close.
+- Updated todo item by truncating text to 1 line
+- Updated icon colors to be gray by default and add color on hover
+- Figured out width animation on sidebar (needed to add "transistion-width)
+
+**Thoughts:** Got a little refresher on CSS animations, espcecially with Tailwind. Forgot to add the "all" parameter. I also wanted to make the buttons not stand out as much so as not to b a distraction. Limiting the "color" to being on hover feels better.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** N/A
+
 ## Day 4: February 17, 2022
 
 **Today's Progress:** Reworked Icons. Details Form. Updated State Management. Added Add, Remove, and Edit functionality.

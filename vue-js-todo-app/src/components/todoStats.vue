@@ -1,7 +1,15 @@
 <template>
 	<div class="w-full">
-		<BaseCard class="w-full bg-gray-300 flex justify-between items-center">
-			<div>
+		<BaseCard
+			class="
+				w-full
+				bg-gray-300
+				flex flex-wrap
+				justify-between
+				items-center
+			"
+		>
+			<div class="w-full text-center mb-2 md:w-auto md:w-auto md:mb-0">
 				<span>
 					<input
 						class="filter-radio"
@@ -46,7 +54,7 @@
 					>
 				</span>
 			</div>
-			<div>
+			<div class="mx-auto md:mx-0">
 				<p class="text-lg font-bold">Open Todos: {{ openTodos }}</p>
 			</div>
 		</BaseCard>

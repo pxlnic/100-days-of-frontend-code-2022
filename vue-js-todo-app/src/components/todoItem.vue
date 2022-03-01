@@ -8,13 +8,14 @@
 			cursor-pointer
 			mb-2
 		"
+		:class="{ 'bg-gray-100': todo.complete }"
 		bgColor="bg-gray-200"
 		bgHoverColor="hover:bg-gray-300"
 	>
-		<div class="flex flex-row items-center w-full">
+		<div class="flex flex-row items-center w-full overflow-hidden">
 			<div class="p-2 pr-6 z-20" @click="toggleTodo(todo.id)">
 				<FaIcon
-					width="w-6"
+					width="w-8"
 					fillColor="fill-slate-700"
 					hoverFillColor="hover:fill-slate-600"
 					type="circle"
@@ -22,7 +23,7 @@
 					v-show="!todo.complete"
 				/>
 				<FaIcon
-					width="w-6"
+					width="w-8"
 					fillColor="fill-lime-800"
 					hoverFillColor="hover:fill-lime-600"
 					type="circleCheck"
@@ -35,22 +36,28 @@
 					'opacity-50': todo.complete,
 					'line-through': todo.complete,
 				}"
-				class="justify-self-stretch w-full"
+				class="w-full overflow-hidden pr-4"
 				@click="openTodo(todo)"
 			>
-				<p class="text-lg font-bold md:text-xl">{{ todo.title }}</p>
-				<p class="md:text-lg">{{ todo.description }}</p>
+				<p class="text-lg font-bold truncate ... md:text-xl">
+					{{ todo.title }}
+				</p>
+				<p class="truncate ... md:text-lg">
+					{{ todo.description }}
+				</p>
 			</div>
 		</div>
 
-		<FaIcon
-			fillColor="fill-red-700"
-			hoverFillColor="hover:fill-red-500"
-			width="w-8"
-			type="circleX"
-			class="mr-4 cursor-pointer justify-self-end z-20"
-			@click="deleteTodo(todo.id)"
-		/>
+		<div class="min-width-fit">
+			<FaIcon
+				fillColor="fill-gray-500"
+				hoverFillColor="hover:fill-red-700"
+				width="w-8"
+				type="circleX"
+				class="mr-2 cursor-pointer z-20"
+				@click="deleteTodo(todo.id)"
+			/>
+		</div>
 	</BaseCard>
 </template>
 
