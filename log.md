@@ -1,5 +1,20 @@
 # 100 Days Of Code - Log
 
+## Day 8: March 7, 2022
+
+**Today's Progress:** Code clean up, enhanced logic planning, ...
+- Planning for logic to check for and confirm a change in case data would be lost
+    - i.e. editing a "Todo" and clicking the "Add" button (add logic to check if todo form has any data)
+- NOTE: Returning to Weekday Coding (took a break due to busy work project and being in a friends wedding).
+
+**Thoughts:** Took some time to plan out and think aobut how to work with confirmations. Added logic to check for FormData.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** N/A
+
+***
+
 ## Day 7: February 28, 2022
 
 **Today's Progress:** Fixed transition. localStorage working. Started Stats.
@@ -12,6 +27,8 @@
 **Link to work:** In the 'vue-js-todo-app' folder
 
 **Image:** N/A
+
+***
 
 ## Day 6: February 25, 2022
 
@@ -26,6 +43,8 @@
 
 **Image:** N/A
 
+***
+
 ## Day 5: February 18, 2022
 
 **Today's Progress:** Updated UI elements. Fixed sidebar transition on open/close.
@@ -38,6 +57,8 @@
 **Link to work:** In the 'vue-js-todo-app' folder
 
 **Image:** N/A
+
+***
 
 ## Day 4: February 17, 2022
 
@@ -53,6 +74,8 @@
 **Link to work:** In the 'vue-js-todo-app' folder
 
 **Image:** ![Todos App List](_progress-images/20220217-vue-todo-app-list.png "Todos app list")
+
+***
 
 ## Day 3: February 16, 2022
 
@@ -73,6 +96,8 @@
 **Link to work:** In the 'vue-js-todo-app' folder
 
 **Image:** ![Todos App List](_progress-images/20220216-vue-todo-app-list.png "Todos app list")
+
+***
 
 ## Day 2: February 15, 2022
 

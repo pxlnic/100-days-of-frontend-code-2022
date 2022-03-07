@@ -88,6 +88,18 @@ export const useTodoStore = defineStore({
         },
         setTodosFormData(data){
             this.todosFormData = data
+        },
+        checkForTodoFormData(){
+            console.log(`TITLE: ${this.todosFormData.title.length}`)
+            console.log(`DESCERIPTION: ${this.todosFormData.description.length}`)
+
+            if(this.todosFormData.description.length == 0 && this.todosFormData.title.length == 0){
+                console.log("FORM EMPTY")
+                return false;
+            } else {
+                console.log("FORM NOT EMPTY")
+                return true;
+            }
         }
     }
 })

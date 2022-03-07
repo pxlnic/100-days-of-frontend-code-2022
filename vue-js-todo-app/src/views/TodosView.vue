@@ -30,7 +30,7 @@
 					width="w-8"
 					type="circlePlus"
 					class="mr-4 cursor-pointer"
-					@click="addTodo"
+					@click="newTodo"
 				/>
 			</div>
 
@@ -57,13 +57,30 @@ const todoStore = useTodoStore();
 
 const showDetails = ref(false);
 
-function openTodo(todoInfo) {
-	console.log("OPENING FROM MAIN VIEW");
-	todoStore.setTodosDetailsOpen(true);
+function openTodo() {
+	console.log("OPENING TODO: MAIN VIEW");
+	if (todoStore.checkForTodoFormData()) {
+		return;
+	} else {
+		todoStore.setTodosDetailsOpen(true);
+	}
 }
 
-function addTodo() {
-	todoStore.setTodosDetailsOpen(true);
+function newTodo() {
+	if (todoStore.checkForTodoFormData()) {
+		// ADD CONFIRM ALERT
+		console.log("ADD CONFIRM ALERT");
+		return;
+	} else {
+		todoStore.setTodosFormData({
+			id: null,
+			title: "",
+			description: "",
+			valid: false,
+			clicked: false,
+		});
+		todoStore.setTodosDetailsOpen(true);
+	}
 }
 </script>
 
