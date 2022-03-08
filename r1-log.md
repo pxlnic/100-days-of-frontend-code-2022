@@ -4,6 +4,18 @@ The log of my #100DaysOfCode challenge. Started on [February 13, 2022].
 
 ## Log
 
+### R1D8
+Worked on Vue "todos app". Started planning out and adding logic to check for FormData. The end goal is to present a popup to confirm if the data should be overwritten.
+
+### R1D7
+Worked on Vue "todos app". Finished initial localStorage implementation and all data saves and loads to localStorage.
+
+### R1D6
+Worked on Vue "todos app". Started adding localStorage to make todos persistent.
+
+### R1D5
+Worked on Vue "todos app". Updated UI elements by truncating text on todos and keeping icons gray until hovered.
+
 ### R1D4
 Worked on Vue "todos app". Reworked icons, delved into Composition API with Setup tag more, devled into Pinia state management more, and added form for creating/editing todos.
 
