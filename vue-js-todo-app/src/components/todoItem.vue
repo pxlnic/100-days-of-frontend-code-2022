@@ -72,16 +72,20 @@ const todoStore = useTodoStore();
 const props = defineProps(["todo"]);
 
 function openTodo(todo) {
-	console.log(todo);
-	todoStore.setTodosDetailsOpen(true);
-	todoStore.setTodosFormData({
-		id: todo.id,
-		title: todo.title,
-		description: todo.description,
-		complete: todo.complete,
-		valid: true,
-		clicked: false,
-	});
+	if (todoStore.checkForTodoFormData()) {
+		console.log("ADD CONFIRM ALERT");
+		todoStore.setTodosOverwriteConfirmation(true);
+	} else {
+		todoStore.setTodosDetailsOpen(true);
+		todoStore.setTodosFormData({
+			id: todo.id,
+			title: todo.title,
+			description: todo.description,
+			complete: todo.complete,
+			valid: true,
+			clicked: false,
+		});
+	}
 }
 
 function toggleTodo(id) {

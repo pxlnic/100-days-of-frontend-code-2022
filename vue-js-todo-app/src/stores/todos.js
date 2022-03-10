@@ -6,6 +6,7 @@ export const useTodoStore = defineStore({
             todos: (JSON.parse(localStorage.getItem('todos')) || []),
             todosFilter: 'open',
             todosDetailsOpen: false,
+            todosOverwriteConfirmation: false,
             todosFormData: {
                 title: "",
                 description: "",
@@ -36,6 +37,9 @@ export const useTodoStore = defineStore({
         },
         getTodosDetailsOpen:(state) => {
             return state.todosDetailsOpen
+        },
+        getTodosOverwriteConfirmationState:(state) => {
+            return state.todosOverwriteConfirmation
         },
         getTodosFormData:(state) => {
             return state.todosFormData
@@ -89,15 +93,13 @@ export const useTodoStore = defineStore({
         setTodosFormData(data){
             this.todosFormData = data
         },
+        setTodosOverwriteConfirmation(status){
+            this.todosOverwriteConfirmation = status
+        },
         checkForTodoFormData(){
-            console.log(`TITLE: ${this.todosFormData.title.length}`)
-            console.log(`DESCERIPTION: ${this.todosFormData.description.length}`)
-
             if(this.todosFormData.description.length == 0 && this.todosFormData.title.length == 0){
-                console.log("FORM EMPTY")
                 return false;
             } else {
-                console.log("FORM NOT EMPTY")
                 return true;
             }
         }

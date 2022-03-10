@@ -1,5 +1,21 @@
 # 100 Days Of Code - Log
 
+## Day 9: March 8, 2022
+
+**Today's Progress:** Data Form reset confirmation Logic
+- Started implementing logic for confirm data change in form
+    - Added a field to state to set when modal opens
+- Started creating modal component
+- Need to add an async/await to allow for clicking on modal
+
+**Thoughts:** Not a lot of time spent on this today (work stuff), but started to flesh out creating a confirmatio modal for when data would be lost in Modal.
+
+**Link to work:** In the 'vue-js-todo-app' folder
+
+**Image:** N/A
+
+***
+
 ## Day 8: March 7, 2022
 
 **Today's Progress:** Code clean up, enhanced logic planning, ...
